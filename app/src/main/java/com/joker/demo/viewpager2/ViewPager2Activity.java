@@ -55,7 +55,7 @@ public class ViewPager2Activity extends AppCompatActivity implements View.OnClic
         //一屏多页
         mPager2.setOffscreenPageLimit(2);
         RecyclerView recyclerView = (RecyclerView) mPager2.getChildAt(0);
-        int padding = 50;
+        int padding = 200;
         recyclerView.setPadding(padding, 0, padding, 0);
         recyclerView.setClipToPadding(false);
 
