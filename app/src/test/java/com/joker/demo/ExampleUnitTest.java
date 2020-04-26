@@ -14,4 +14,14 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void testByte(){
+        int a=129;
+        String s="128";
+        byte b= (byte) a;
+        byte d= Byte.parseByte(s);
+        System.out.println(b);
+        System.out.println(d);
+    }
 }
