@@ -13,8 +13,17 @@
         app:titleText="3713"
         app:titleTextColor="@color/colorPrimary"
         app:titleTextSize="40sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_path"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+
+
+    <Button
+        android:id="@+id/btn_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="path"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
