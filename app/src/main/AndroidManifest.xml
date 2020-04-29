@@ -10,7 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customview.PathActivity"></activity>
+        <activity android:name=".startactivityforresult.BActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+        <activity android:name=".startactivityforresult.AActivity"
+            />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".customview.PathActivity" />
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".viewpager2.Vp2FragmentActivity" />
         <activity android:name=".viewpager2.ViewPager2Activity" />
