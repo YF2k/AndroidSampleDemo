@@ -46,11 +46,22 @@
         />
 
     <Button
+        android:id="@+id/btn_lifecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lifecycle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_startActivityForResult"
+        android:textAllCaps="false"
+        />
+
+    <Button
         android:id="@+id/btn_A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="跳转到B"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="280dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
