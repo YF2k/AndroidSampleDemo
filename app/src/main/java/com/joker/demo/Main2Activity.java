@@ -16,16 +16,16 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        mBtnB=findViewById(R.id.btn_B);
+        mBtnB = findViewById(R.id.btn_B);
         mBtnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setClass(Main2Activity.this,MainActivity.class);
+                Intent intent = new Intent();
+                intent.setClass(Main2Activity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        Log.e("xiang","B create");
+        Log.e("xiang", "B create");
     }
 
     @Override
