@@ -4,73 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    tools:context=".jetpack.room.RoomActivity">
+    
     <Button
-        android:id="@+id/btn_vp2"
+        android:id="@+id/btn_insert_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ViewPager2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textAllCaps="false"
-         />
-
-    <Button
-        android:id="@+id/btn_custom_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="自定义View"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_vp2"
-        android:textAllCaps="false"
+        android:text="插入一条数据"
         />
 
     <Button
-        android:id="@+id/btn_startActivityForResult"
+        android:id="@+id/btn_insert_some"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="startActivityForResult及singleTask"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_custom_view"
-        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_insert_one"
+        android:text="插入多条数据"
         />
 
     <Button
-        android:id="@+id/btn_lifecycle"
+        android:id="@+id/btn_update_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lifecycle"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_startActivityForResult"
-        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_insert_some"
+        android:text="更新一条数据"
         />
 
     <Button
-        android:id="@+id/btn_room"
+        android:id="@+id/btn_delete_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_lifecycle"
-        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_update_one"
+        android:text="删除一条数据"
+        />
+
+    <Button
+        android:id="@+id/btn_find_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_delete_one"
+        android:text="查询一条数据"
         />
     <Button
-        android:id="@+id/btn_A"
+        android:id="@+id/btn_find_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="跳转到B"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-       />
+        app:layout_constraintTop_toBottomOf="@id/btn_find_one"
+        android:text="查询所有数据"
+        />
+    <Button
+        android:id="@+id/btn_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_find_all"
+        android:text="删除所有数据"
+        />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_delete_all"
+        android:text="操作信息"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

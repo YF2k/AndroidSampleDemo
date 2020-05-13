@@ -11,11 +11,12 @@ import android.widget.Button;
 
 import com.joker.demo.customview.CustomViewActivity;
 import com.joker.demo.jetpack.lifecycle.LifeCycleActivity;
+import com.joker.demo.jetpack.room.RoomActivity;
 import com.joker.demo.startactivityforresult.AActivity;
 import com.joker.demo.viewpager2.Vp2FragmentActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    Button mBtnA,mBtnVp2,mBtnCustomView,mBtnStartAtyFrST,mBtnLifeCycle;
+    Button mBtnA,mBtnVp2,mBtnCustomView,mBtnStartAtyFrST,mBtnLifeCycle,mBtnRoom;
 
 
     @Override
@@ -51,6 +52,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.btn_lifecycle:
                 startTargetActivity(LifeCycleActivity.class);
                 break;
+            case R.id.btn_room:
+                startTargetActivity(RoomActivity.class);
+                break;
         }
     }
 
@@ -60,12 +64,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mBtnCustomView=findViewById(R.id.btn_custom_view);
         mBtnStartAtyFrST=findViewById(R.id.btn_startActivityForResult);
         mBtnLifeCycle=findViewById(R.id.btn_lifecycle);
+        mBtnRoom=findViewById(R.id.btn_room);
 
         mBtnVp2.setOnClickListener(this);
         mBtnCustomView.setOnClickListener(this);
         mBtnStartAtyFrST.setOnClickListener(this);
         mBtnLifeCycle.setOnClickListener(this);
-
+        mBtnRoom.setOnClickListener(this);
 
     }
 
