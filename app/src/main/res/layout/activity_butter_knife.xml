@@ -24,4 +24,27 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="提交"/>
 
+
+    <Button
+        android:id="@+id/btn_submit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="提交1"/>
+    <Button
+        android:id="@+id/btn_submit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="提交2"/>
+    <Button
+        android:id="@+id/btn_submit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="提交3"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

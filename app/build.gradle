@@ -21,8 +21,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
+    //解决butterknife 绑定点击事件崩溃问题 原因：https://blog.csdn.net/MRYZJ/article/details/98079061
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 
 
 dependencies {
