@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".jetpack.room.RoomActivity"></activity>
+        <activity android:name=".butterknife.XyKnifeActivity"></activity>
+        <activity android:name=".butterknife.ButterKnifeActivity" />
+        <activity android:name=".jetpack.room.RoomActivity" />
         <activity android:name=".jetpack.lifecycle.LifeCycleActivity" />
         <activity
             android:name=".startactivityforresult.BActivity"

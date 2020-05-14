@@ -2,13 +2,20 @@ package com.joker.demo;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
+import com.joker.demo.butterknife.ButterKnifeActivity;
+import com.joker.demo.butterknife.XyKnifeActivity;
 import com.joker.demo.customview.CustomViewActivity;
 import com.joker.demo.jetpack.lifecycle.LifeCycleActivity;
 import com.joker.demo.jetpack.room.RoomActivity;
@@ -16,8 +23,9 @@ import com.joker.demo.startactivityforresult.AActivity;
 import com.joker.demo.viewpager2.Vp2FragmentActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    Button mBtnA,mBtnVp2,mBtnCustomView,mBtnStartAtyFrST,mBtnLifeCycle,mBtnRoom;
-
+    Button mBtnA,mBtnVp2,mBtnCustomView,mBtnStartAtyFrST,mBtnLifeCycle,mBtnRoom,mBtnXyKnife;
+    private Unbinder unbinder;
+    EditText mEtTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +33,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         initActionBar();
         initView();
-
+//        unbinder= ButterKnife.bind(this);
         mBtnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +44,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         });
         Log.e("xiang","A create");
     }
+
+   /* @OnClick(R.id.btn_xyKnife)
+    void skipXyknife(){
+        startTargetActivity(ButterKnifeActivity.class);
+    }*/
 
     @Override
     public void onClick(View v) {
@@ -55,6 +68,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.btn_room:
                 startTargetActivity(RoomActivity.class);
                 break;
+            case R.id.btn_xyKnife:
+                startTargetActivity(XyKnifeActivity.class);
+                break;
         }
     }
 
@@ -65,12 +81,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mBtnStartAtyFrST=findViewById(R.id.btn_startActivityForResult);
         mBtnLifeCycle=findViewById(R.id.btn_lifecycle);
         mBtnRoom=findViewById(R.id.btn_room);
+        mBtnXyKnife=findViewById(R.id.btn_xyKnife);
+        mEtTest=findViewById(R.id.et_test);
 
         mBtnVp2.setOnClickListener(this);
         mBtnCustomView.setOnClickListener(this);
         mBtnStartAtyFrST.setOnClickListener(this);
         mBtnLifeCycle.setOnClickListener(this);
         mBtnRoom.setOnClickListener(this);
+        mBtnXyKnife.setOnClickListener(this);
 
     }
 
@@ -81,5 +100,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     }
 
-
+    @Override
+    protected void onDestroy() {
+//        unbinder.unbind();
+        super.onDestroy();
+    }
 }
