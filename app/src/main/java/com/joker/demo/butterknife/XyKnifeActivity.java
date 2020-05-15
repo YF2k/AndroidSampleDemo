@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.joker.annotation.XyBindView;
+//import com.joker.annotation.XyBindView;
 import com.joker.demo.BaseActivity;
 import com.joker.demo.R;
 
 public class XyKnifeActivity extends BaseActivity {
-    @XyBindView(R.id.tv_xyknife)
+//    @XyBindView(R.id.tv_xyknife)
     TextView mTvXyKnife;
 
-    @XyBindView(R.id.btn_butterknife)
+//    @XyBindView(R.id.btn_butterknife)
     Button mBtnButterKnife;
 
     @Override

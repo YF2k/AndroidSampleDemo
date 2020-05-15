@@ -5,8 +5,10 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.annotation.Target;
 
 class Student {
-    private String name;
+    @TestView(value = 667)
+    public String name="xiaoli";
 
+    @NotNull
     public String score;
 
     public String getName() {

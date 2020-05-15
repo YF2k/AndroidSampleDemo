@@ -1,6 +1,9 @@
 package com.joker.demo.reflect;
 
+import android.widget.TextView;
+
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -17,6 +20,13 @@ public class ReflectDemo {
                 Field[] declaredFields=aClass.getDeclaredFields();
                 for (Field field:declaredFields) {
                     System.out.println(field);
+                    if(field.isAnnotationPresent(TestView.class)){
+                        field.setAccessible(true);
+                        //获取注解
+                        TestView annotation= field.getAnnotation(TestView.class);
+                        int value= annotation.value();
+                        System.out.println("annotation:"+annotation+"value:"+value);
+                    }
                 }
                 System.out.println("=============================");
                 //获取指定字段
@@ -34,6 +44,11 @@ public class ReflectDemo {
                 //2.获取方法
                 Method[] declaredMethods = aClass.getDeclaredMethods();
                 for (Method method:declaredMethods) {
+                    //执行方法
+                    if(method.getName().equals("getName")){
+                        Object o= method.invoke(aClass.newInstance());
+                        System.out.println("执行getName方法：：name="+o);
+                    }
                     System.out.println(method);
                 }
                 System.out.println("================================");
@@ -41,11 +56,21 @@ public class ReflectDemo {
                 Method method=aClass.getDeclaredMethod("getScore",String.class);
                 System.out.println(method);
                 System.out.println("================================");
+                //获取构造方法
+                Constructor[] constructors= aClass.getDeclaredConstructors();
+                for(Constructor constructor:constructors){
+                    //执行方法
+                    Object o= constructor.newInstance();
+                    System.out.println("Student实例："+o+"::Student-hashCode:"+o.hashCode());
+                    System.out.println(constructor);
+                }
+                System.out.println("================================");
                 //获取注解
-                Annotation[] annotations= aClass.getDeclaredAnnotations();
+                Annotation[] annotations= aClass.getAnnotations();
                 for(Annotation annotation:annotations){
                     System.out.println(annotation);
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
