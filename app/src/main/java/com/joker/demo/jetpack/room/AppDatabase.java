@@ -7,7 +7,7 @@ import androidx.room.InvalidationTracker;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-@Database(entities = {User.class},version = 1)
+@Database(entities = {User.class},version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     //RoomDatabase提供直接访问底层数据库实现，我们通过定义抽象方法返回具体Dao
 //然后进行数据库增删改查的实现。
