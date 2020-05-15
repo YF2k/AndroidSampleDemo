@@ -8,7 +8,7 @@ public class XyKnife {
     public static void bind(Activity activity){
         // 获取到对应的 Activity的class
         Class<? extends Activity> aClass = activity.getClass();
-        //获取到全路径字符串
+        //获取到全路径字符串----com.joker.demo.butterknife.XyKnifeActivity
         String canonicalName = aClass.getCanonicalName();
         try {
 
