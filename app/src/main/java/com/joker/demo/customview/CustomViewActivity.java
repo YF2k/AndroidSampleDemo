@@ -12,13 +12,14 @@ public class CustomViewActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_view);
+
         initView();
 
 
     }
 
-    private void initView() {
+    protected void initView() {
+        setContentView(R.layout.activity_custom_view);
         mBtnPath=findViewById(R.id.btn_path);
         mBtnPath.setOnClickListener(this);
     }
