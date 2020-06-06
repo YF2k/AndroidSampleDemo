@@ -56,6 +56,17 @@ fun main() {
 
     //扩展函数
     println("Kotlin".lastChar())
+    //扩展函数不能被覆盖
+    val button:View=Button()
+    button.click()
+    button.longClick()
+
+    //扩展属性
+    println("Kotlin".lastChar)
+
+    val sb = StringBuilder("Kotlin")
+    sb.lastChar = 'g'
+    println(sb)
 }
 
 
@@ -448,7 +459,37 @@ class Student9(val sno: String = "", val grade: Int = 0, name: String = "", age:
 }
 
 //扩展函数---可以让你作为一个类成员进行调用的函数，但是是定义在这个类的外部
+//在这个扩展函数中，你可以直接访问你扩展的类型的函数和属性，就像定义在这个类中的方法一样，但是扩展函数并不允许你打破封装。跟定义在类中方法不同，它不能访问那些私有的、受保护的方法和属性。
 fun String.lastChar(): Char = this.get(this.length - 1)
+
+//扩展函数不能被覆盖
+open class View{
+    open fun click() {
+        println("view clicked")
+    }
+}
+
+open class Button: View() {
+    override fun click(){
+        println("button clicked")
+    }
+}
+
+fun View.longClick() = println("view longClicked")
+fun Button.longClick() = println("button longClicked")
+
+//扩展属性---提供了一种方法用能通过属性语法进行访问的API来扩展
+//尽管它们被叫做属性，但是它们不能拥有任何状态，它不能添加额外的字段到现有的java对象实例
+
+
+val String.lastChar: Char
+    get() = get(length - 1)
+
+var StringBuilder.lastChar: Char
+    get() =  get(length - 1)
+    set(value) {
+        this.setCharAt(length -1, value)
+    }
 
 
 
