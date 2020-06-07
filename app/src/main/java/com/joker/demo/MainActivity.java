@@ -3,6 +3,7 @@ package com.joker.demo;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -14,26 +15,34 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.joker.demo.bitmap.BitmapActivity;
 import com.joker.demo.butterknife.ButterKnifeActivity;
 import com.joker.demo.butterknife.XyKnifeActivity;
 import com.joker.demo.customview.CustomViewActivity;
+import com.joker.demo.fragment.FragmentTestActivity;
 import com.joker.demo.jetpack.lifecycle.LifeCycleActivity;
 import com.joker.demo.jetpack.room.RoomActivity;
 import com.joker.demo.startactivityforresult.AActivity;
 import com.joker.demo.viewpager2.Vp2FragmentActivity;
 
+import java.util.List;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     Button mBtnA,mBtnVp2,mBtnCustomView,mBtnStartAtyFrST,mBtnLifeCycle,mBtnRoom,mBtnXyKnife;
-    private Unbinder unbinder;
+
     EditText mEtTest;
 
+    @BindViews({R.id.btn_bitmap,R.id.btn_fragment})
+    List<Button> mButtons;
+
+    private Unbinder unbinder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
         initActionBar();
         initView();
-//        unbinder= ButterKnife.bind(this);
+        unbinder= ButterKnife.bind(this);
         mBtnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,10 +54,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Log.e("xiang","A create");
     }
 
-   /* @OnClick(R.id.btn_xyKnife)
-    void skipXyknife(){
-        startTargetActivity(ButterKnifeActivity.class);
-    }*/
+    @OnClick({R.id.btn_bitmap,R.id.btn_fragment})
+    void onViewClick(View v){
+        switch (v.getId()){
+            case R.id.btn_bitmap:
+                startTargetActivity(BitmapActivity.class);
+                break;
+            case R.id.btn_fragment:
+                startTargetActivity(FragmentTestActivity.class);
+                break;
+        }
+    }
+//    void skipBitmap(){
+//        startTargetActivity(BitmapActivity.class);
+//    }
+
+
 
     @Override
     public void onClick(View v) {
@@ -74,7 +95,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
     }
 
-    private void initView() {
+    protected void initView() {
+        setContentView(R.layout.activity_main);
         mBtnA=findViewById(R.id.btn_A);
         mBtnVp2=findViewById(R.id.btn_vp2);
         mBtnCustomView=findViewById(R.id.btn_custom_view);
@@ -102,7 +124,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void onDestroy() {
-//        unbinder.unbind();
+        unbinder.unbind();
         super.onDestroy();
     }
 }
