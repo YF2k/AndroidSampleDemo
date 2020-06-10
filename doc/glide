@@ -1,0 +1,6 @@
+glide:
+#优势
+1.高效缓存，支持memory和disk图片缓存，默认使用二级缓存
+2.生命周期绑定
+3.高效加载Bitmap,使用Bitmap pool复用Bitmap
+

@@ -20,6 +20,7 @@ import com.joker.demo.butterknife.ButterKnifeActivity;
 import com.joker.demo.butterknife.XyKnifeActivity;
 import com.joker.demo.customview.CustomViewActivity;
 import com.joker.demo.fragment.FragmentTestActivity;
+import com.joker.demo.glide.GlideActivity;
 import com.joker.demo.jetpack.lifecycle.LifeCycleActivity;
 import com.joker.demo.jetpack.room.RoomActivity;
 import com.joker.demo.startactivityforresult.AActivity;
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Log.e("xiang","A create");
     }
 
-    @OnClick({R.id.btn_bitmap,R.id.btn_fragment})
+    @OnClick({R.id.btn_bitmap,R.id.btn_fragment,R.id.btn_glide})
     void onViewClick(View v){
         switch (v.getId()){
             case R.id.btn_bitmap:
@@ -62,6 +63,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.btn_fragment:
                 startTargetActivity(FragmentTestActivity.class);
+                break;
+            case R.id.btn_glide:
+                startTargetActivity(GlideActivity.class);
                 break;
         }
     }
