@@ -110,4 +110,40 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
+    <Button
+        android:id="@+id/btn_handler_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内存优化"
+        app:layout_constraintTop_toBottomOf="@+id/btn_glide"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_memoryshake_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内存抖动"
+        app:layout_constraintTop_toTopOf="@+id/btn_handler_activity"
+        app:layout_constraintLeft_toRightOf="@+id/btn_handler_activity"
+        />
+
+    <Button
+        android:id="@+id/btn_memoryleak_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内存泄漏"
+        app:layout_constraintTop_toTopOf="@+id/btn_memoryshake_activity"
+        app:layout_constraintLeft_toRightOf="@id/btn_memoryshake_activity"
+        />
+
+    <Button
+        android:id="@+id/btn_network_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="网络"
+        app:layout_constraintTop_toBottomOf="@+id/btn_memoryshake_activity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

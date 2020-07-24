@@ -23,7 +23,7 @@ android {
     }
 
     //解决butterknife 绑定点击事件崩溃问题 原因：https://blog.csdn.net/MRYZJ/article/details/98079061
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -50,6 +50,14 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    // add dependence
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6'
+
 
 }
 repositories {
