@@ -4,26 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bitmap.BitmapActivity">
+    tools:context=".lru.DiskLruCacheActivity">
 
     <ImageView
-        android:id="@+id/iv_bitmap"
-        android:visibility="gone"
+        android:id="@+id/iv_disklrucache_bitmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_switch_image"/>
-
-    <com.joker.demo.bitmap.LargeImageView
-        android:id="@+id/id_largeImageview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <Button
-        android:id="@+id/btn_switch_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="换图"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
