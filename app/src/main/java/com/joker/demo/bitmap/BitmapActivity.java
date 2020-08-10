@@ -29,6 +29,9 @@ public class BitmapActivity extends BaseActivity {
     @BindView(R.id.btn_switch_image)
     Button mBtnSwitchImage;
 
+    @BindView(R.id.id_largeImageview)
+    LargeImageView mLargeImageView;
+
     private Unbinder unbinder;
 
     Bitmap reuseBitmap;//可以用来复用的bitmap对象
@@ -44,6 +47,17 @@ public class BitmapActivity extends BaseActivity {
         initFromDrawable(true);
         initFromAssets();
         showRegionImage();
+        initLargeImage();
+    }
+
+    private void initLargeImage() {
+        try {
+            InputStream inputStream = getAssets().open("qm.jpg");
+            mLargeImageView.setInputStream(inputStream);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.btn_switch_image)
@@ -52,30 +66,30 @@ public class BitmapActivity extends BaseActivity {
     }
 
     //分片显示
-   void  showRegionImage(){
-       try {
-           InputStream inputStream=getAssets().open("long_bmp.jpg");
-           //设置显示图片的中心区域
-           BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(inputStream,false);
-           BitmapFactory.Options options=new BitmapFactory.Options();
-           Bitmap bitmap=decoder.decodeRegion(new Rect(0,0,200,200),options);
-           mIvBitmap.setImageBitmap(bitmap);
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
+    void showRegionImage() {
+        try {
+            InputStream inputStream = getAssets().open("long_bmp.jpg");
+            //设置显示图片的中心区域
+            BitmapRegionDecoder decoder = BitmapRegionDecoder.newInstance(inputStream, false);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            Bitmap bitmap = decoder.decodeRegion(new Rect(0, 0, 200, 200), options);
+            mIvBitmap.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     //bitmap复用
     public Bitmap getBitmap() {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeResource(getResources(), resIds[resIndex % 2], options);
-        if (canUserForInBitmap(reuseBitmap, options)){
-            options.inMutable=true;//这里如果不置为 true 的话，BitmapFactory 将不会重复利用 Bitmap 内存,
+        if (canUserForInBitmap(reuseBitmap, options)) {
+            options.inMutable = true;//这里如果不置为 true 的话，BitmapFactory 将不会重复利用 Bitmap 内存,
             // 并输出相应 warning 日志：Unable to reuse an immutable bitmap as an image decoder target.
-            options.inBitmap=reuseBitmap;//将 options.inBitmap 赋值为之前创建的 reuseBitmap 对象，从而避免重新分配内存。
+            options.inBitmap = reuseBitmap;//将 options.inBitmap 赋值为之前创建的 reuseBitmap 对象，从而避免重新分配内存。
         }
-        options.inJustDecodeBounds=false;
+        options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(getResources(), resIds[resIndex++ % 2], options);
     }
 
@@ -86,8 +100,8 @@ public class BitmapActivity extends BaseActivity {
         int width = targetOptions.outWidth / Math.max(targetOptions.inSampleSize, 1);
         int height = targetOptions.outWidth / Math.max(targetOptions.inSampleSize, 1);
         int byteCount = width * height * getBytesPerPixel(candidate.getConfig());
-        boolean isCanUse=byteCount<candidate.getAllocationByteCount();//新的bitmap内存<可复用BItmap占用内存
-        Log.d(TAG,"是否可以复用:"+isCanUse);
+        boolean isCanUse = byteCount < candidate.getAllocationByteCount();//新的bitmap内存<可复用BItmap占用内存
+        Log.d(TAG, "是否可以复用:" + isCanUse);
         return isCanUse;
     }
 
@@ -145,9 +159,9 @@ public class BitmapActivity extends BaseActivity {
         setContentView(R.layout.activity_bitmap);
         mIvBitmap = findViewById(R.id.iv_bitmap);
 
-        BitmapFactory.Options options=new BitmapFactory.Options();
-        options.inMutable=true;
-        reuseBitmap=BitmapFactory.decodeResource(getResources(), resIds[0], options);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inMutable = true;
+        reuseBitmap = BitmapFactory.decodeResource(getResources(), resIds[0], options);
     }
 
     @Override
