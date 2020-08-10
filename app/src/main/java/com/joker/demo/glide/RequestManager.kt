@@ -4,6 +4,7 @@ import java.util.concurrent.LinkedBlockingQueue
 
 class RequestManager private constructor() {
     var requestQueue = LinkedBlockingQueue<BitmapRequest>()
+    //初始化一个空数组，大小为0
     var bitmapDispacthers = emptyArray<BitmapDispacther?>()
 
     init {
@@ -50,6 +51,7 @@ class RequestManager private constructor() {
 
     fun createAndStartAllDispatcher() {
         var threadCount = Runtime.getRuntime().availableProcessors()
+        //初始化一个空的数组，需要传入数组大小
         bitmapDispacthers = arrayOfNulls<BitmapDispacther>(threadCount)
         for (i in 0 until threadCount) {
             var bitmapDispacther = BitmapDispacther(requestQueue)
