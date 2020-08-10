@@ -1,2 +1,2 @@
-include ':app', ':parseannotation', ':annotation'
+include ':app', ':parseannotation', ':annotation', ':myktokhttp'
 rootProject.name='Demo'
