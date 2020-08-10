@@ -3,6 +3,7 @@
     package="com.joker.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -13,7 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".glide.GlideActivity"></activity>
+        <activity android:name=".leakcanary.MemoryLeakActivity2"></activity>
+        <activity android:name=".leakcanary.MemoryLeakActivity" />
+        <activity android:name=".lru.DiskLruCacheActivity" />
+        <activity android:name=".okhttp.NetTestActivity" />
+        <activity android:name=".memoryoptimization.MemoryShake2Activity" />
+        <activity android:name=".memoryoptimization.MemoryShakeActivity" />
+        <activity android:name=".memoryoptimization.HandlerActivity" />
+        <activity android:name=".glide.GlideActivity" />
         <activity android:name=".fragment.FragmentTestActivity" />
         <activity android:name=".bitmap.BitmapActivity" />
         <activity android:name=".butterknife.XyKnifeActivity" />
