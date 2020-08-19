@@ -40,6 +40,7 @@ public class SparseArrayActivity extends AppCompatActivity {
         mBtnGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //经测试，indexofkey方法当key不存在时会返回负数，不一定是-1，测试中也有-2的情况
                 mTvValue.setText("indexofkey:"+array.indexOfKey(key)+":::"+"value:"+array.get(key));
                 key--;
             }
