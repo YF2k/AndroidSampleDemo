@@ -1,4 +1,4 @@
-package com.joker.demo.sparsearray;
+package com.joker.demo.androidother.sparsearray;
 
 import androidx.appcompat.app.AppCompatActivity;
 

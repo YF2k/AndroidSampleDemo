@@ -14,20 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sparsearray.SparseArrayActivity"></activity>
+        <activity android:name=".androidother.sparsearray.SparseArrayActivity"></activity>
         <activity android:name=".mvp.ui.LoginActivity" />
-        <activity android:name=".leakcanary.MemoryLeakActivity2" />
-        <activity android:name=".leakcanary.MemoryLeakActivity" />
+        <activity android:name=".opensourceframe.leakcanary.MemoryLeakActivity2" />
+        <activity android:name=".opensourceframe.leakcanary.MemoryLeakActivity" />
         <activity android:name=".lru.DiskLruCacheActivity" />
-        <activity android:name=".okhttp.NetTestActivity" />
+        <activity android:name=".opensourceframe.okhttp.NetTestActivity" />
         <activity android:name=".memoryoptimization.MemoryShake2Activity" />
         <activity android:name=".memoryoptimization.MemoryShakeActivity" />
         <activity android:name=".memoryoptimization.HandlerActivity" />
         <activity android:name=".glide.GlideActivity" />
         <activity android:name=".fragment.FragmentTestActivity" />
         <activity android:name=".bitmap.BitmapActivity" />
-        <activity android:name=".butterknife.XyKnifeActivity" />
-        <activity android:name=".butterknife.ButterKnifeActivity" />
+        <activity android:name=".opensourceframe.butterknife.XyKnifeActivity" />
+        <activity android:name=".opensourceframe.butterknife.ButterKnifeActivity" />
         <activity android:name=".jetpack.room.RoomActivity" />
         <activity android:name=".jetpack.lifecycle.LifeCycleActivity" />
         <activity

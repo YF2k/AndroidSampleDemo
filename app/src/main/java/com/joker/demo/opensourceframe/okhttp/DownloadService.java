@@ -1,4 +1,4 @@
-package com.joker.demo.okhttp;
+package com.joker.demo.opensourceframe.okhttp;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -15,15 +15,9 @@ import android.widget.Toast;
 import com.joker.demo.R;
 
 import java.io.File;
-import java.io.IOException;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class DownloadService extends Service {
 

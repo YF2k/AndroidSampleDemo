@@ -1,4 +1,4 @@
-package com.joker.demo.leakcanary;
+package com.joker.demo.opensourceframe.leakcanary;
 
 import android.app.Activity;
 import android.app.Application;

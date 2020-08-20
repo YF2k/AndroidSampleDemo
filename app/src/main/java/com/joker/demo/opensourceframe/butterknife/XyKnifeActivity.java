@@ -1,6 +1,4 @@
-package com.joker.demo.butterknife;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.joker.demo.opensourceframe.butterknife;
 
 import android.os.Bundle;
 import android.view.View;

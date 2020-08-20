@@ -1,6 +1,5 @@
-package com.joker.demo.leakcanary;
+package com.joker.demo.opensourceframe.leakcanary;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;

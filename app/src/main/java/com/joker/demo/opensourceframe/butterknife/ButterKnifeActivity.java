@@ -1,4 +1,4 @@
-package com.joker.demo.butterknife;
+package com.joker.demo.opensourceframe.butterknife;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindString;

@@ -1,4 +1,4 @@
-package com.joker.demo.leakcanary;
+package com.joker.demo.opensourceframe.leakcanary;
 
 import com.joker.demo.utils.Preconditions;
 import com.joker.demo.utils.StringUtil;
