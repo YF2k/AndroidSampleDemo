@@ -1,5 +1,6 @@
 package com.joker.demo;
 
+import org.json.JSONArray;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -8,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -126,5 +128,19 @@ public class ExampleUnitTest {
             buf.append(HEX_DIGITS[bytes[j] & 0x0f]);
         }
         return buf.toString();
+    }
+
+    @Test
+    public void testHashMap(){
+        HashMap<String,HashMap<String,String>> map=new HashMap<>();
+        HashMap<String,String> data=new HashMap<>();
+        data.put("li","haha");
+        data.put("xiang","haha");
+        HashMap<String,String> data1=new HashMap<>();
+        data1.put("li1","haha");
+        data1.put("xiang1","haha");
+        map.put("data",data);
+        map.put("data1",data1);
+        System.out.println(map.toString());
     }
 }
