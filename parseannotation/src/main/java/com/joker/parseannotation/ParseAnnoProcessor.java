@@ -28,6 +28,7 @@ import javax.lang.model.type.TypeMirror;
 @AutoService(Processor.class)
 public class ParseAnnoProcessor extends AbstractProcessor {
 
+    //getSupportedAnnotationTypes 方法的内容很简单，返回一个该注解处理器需要处理的注解的字符串集合，我的理解他是一个注册过程。
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> annotationNames=new LinkedHashSet<>();
