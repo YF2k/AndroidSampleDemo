@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".androidother.sparsearray.SparseArrayActivity"></activity>
+        <activity android:name=".ui.HalfActivity"></activity>
+        <activity android:name=".androidother.sparsearray.SparseArrayActivity" />
         <activity android:name=".mvp.ui.LoginActivity" />
         <activity android:name=".opensourceframe.leakcanary.MemoryLeakActivity2" />
         <activity android:name=".opensourceframe.leakcanary.MemoryLeakActivity" />
