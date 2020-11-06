@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".opensourceframe.leakcanary.MemoryLeakActivity2">
 
+    <ImageView
+        android:id="@+id/iv_big_bmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bmp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,17 +23,17 @@ public class MemoryLeakActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startTargetActivity(MemoryLeakActivity2.class);
-                finish();
+//                finish();
             }
         });
-        new Thread(new Runnable() {
+       /* new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
                     System.out.println("=================");
                 }
             }
-        }).start();
+        }).start();*/
     }
 
     @Override
