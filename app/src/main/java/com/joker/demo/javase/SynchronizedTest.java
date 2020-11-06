@@ -86,4 +86,20 @@ public class SynchronizedTest {
         }
     }
 
+    //wait
+    public void testWait(){
+        System.out.println(Thread.currentThread().getName()+"start");
+        //pthread_mutex_lock函数     pthread库
+        synchronized (this){
+            System.out.println(Thread.currentThread().getName()+"excuted");
+            try{
+                //sleep()
+                wait(5000);//不仅释放时间片，还释放锁资源
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        System.out.println(Thread.currentThread().getName()+"end");
+    }
+
 }
