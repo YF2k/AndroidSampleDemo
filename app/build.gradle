@@ -57,6 +57,8 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6'
+    implementation 'me.weishu:epic:0.3.6'
+    implementation 'com.eclipsesource.j2v8:j2v8:4.5.0@aar'
 
 
 }

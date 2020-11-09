@@ -30,6 +30,7 @@ import com.joker.demo.memoryoptimization.HandlerActivity;
 import com.joker.demo.memoryoptimization.MemoryShakeActivity;
 import com.joker.demo.opensourceframe.okhttp.NetTestActivity;
 import com.joker.demo.androidother.sparsearray.SparseArrayActivity;
+import com.joker.demo.pdd.PddActivity;
 import com.joker.demo.startactivityforresult.AActivity;
 import com.joker.demo.ui.HalfActivity;
 import com.joker.demo.utils.PermissionUtil;
@@ -101,7 +102,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     @OnClick({R.id.btn_bitmap, R.id.btn_fragment, R.id.btn_glide, R.id.btn_handler_activity, R.id.btn_memoryshake_activity, R.id.btn_network_activity, R.id.btn_memoryleak_activity,R.id.btn_sparsearray_activity,
-    R.id.btn_half_activity})
+    R.id.btn_half_activity,R.id.btn_pdd_activity})
     void onViewClick(View v) {
         switch (v.getId()) {
             case R.id.btn_bitmap:
@@ -130,6 +131,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_half_activity:
                 startTargetActivity(HalfActivity.class);
+                break;
+            case R.id.btn_pdd_activity:
+                startTargetActivity(PddActivity.class);
                 break;
         }
     }
