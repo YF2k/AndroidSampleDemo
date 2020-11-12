@@ -117,6 +117,19 @@ public class BinaryTreeTraverseTest {
         }
 
         /**
+         * 先序遍历二叉树（递归）
+         * @param node
+         */
+        public void preOrderTraverse2(Node<E> node) {
+            System.out.print(node.value + " ");
+            if (node!=null){
+                preOrderTraverse(node.left);
+                preOrderTraverse(node.right);
+            }
+
+        }
+
+        /**
          * 中序遍历二叉树（递归）
          * @param node
          */

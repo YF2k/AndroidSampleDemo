@@ -2,6 +2,9 @@ package com.joker.demo;
 
 import android.widget.ArrayAdapter;
 
+import com.joker.demo.utils.BairongSignature;
+
+import org.json.JSONObject;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -105,10 +108,10 @@ public class ExampleUnitTest {
         nums.add(2);
         nums.add(3);
         nums.add(1);
-        if(nums.contains(1)){
+        if (nums.contains(1)) {
             nums.remove(Integer.valueOf(1));
         }
-        if(nums.contains(1)){
+        if (nums.contains(1)) {
             nums.remove(Integer.valueOf(1));
         }
         Iterator<Integer> iterator = nums.iterator();
@@ -1595,11 +1598,10 @@ function recursion(大规模){
     }
 
 
-
-
     //206. 反转链表
 
     ListNode reverseHead = new ListNode(2);
+
     public ListNode reverseList(ListNode head) {
 
         reverse(head, reverseHead);
@@ -1630,35 +1632,43 @@ function recursion(大规模){
         HashMap<Integer, Integer> map;
         int key;
 
-        /** Initialize your data structure here. */
+        /**
+         * Initialize your data structure here.
+         */
         public RandomizedCollection() {
             map = new HashMap<>();
         }
 
-        /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+        /**
+         * Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
+         */
         public boolean insert(int val) {
-            if(map.containsValue(val)){
-                map.put(++key,val);
+            if (map.containsValue(val)) {
+                map.put(++key, val);
                 return false;
-            }else{
-                map.put(++key,val);
+            } else {
+                map.put(++key, val);
                 return true;
             }
         }
 
-        /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+        /**
+         * Removes a value from the collection. Returns true if the collection contained the specified element.
+         */
         public boolean remove(int val) {
-             Collection coll = map.values();
-             if(coll.contains(val)){
-                 coll.remove(val);
-                 return true;
-             }
-             return false;
+            Collection coll = map.values();
+            if (coll.contains(val)) {
+                coll.remove(val);
+                return true;
+            }
+            return false;
         }
 
-        /** Get a random element from the collection. */
+        /**
+         * Get a random element from the collection.
+         */
         public int getRandom() {
-            int index = (int) (Math.random()*key+1);
+            int index = (int) (Math.random() * key + 1);
             return map.get(index);
         }
     }
@@ -1667,22 +1677,22 @@ function recursion(大规模){
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList();
         Arrays.sort(nums);
-        for(int i=0 ;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
             int target = -nums[i];
-            for(int second=i+1,third=nums.length-1;second<third;){
-                if(nums[second]==nums[second-1]){
+            for (int second = i + 1, third = nums.length - 1; second < third; ) {
+                if (nums[second] == nums[second - 1]) {
                     continue;
                 }
-                if(nums[second]+nums[third]==target){
+                if (nums[second] + nums[third] == target) {
                     List<Integer> list = new ArrayList();
                     list.add(second);
                     list.add(third);
                     ans.add(list);
                     second++;
                     third--;
-                }else if(nums[second]+nums[third]<target){
+                } else if (nums[second] + nums[third] < target) {
                     second++;
-                }else{
+                } else {
                     third--;
                 }
             }
@@ -1690,6 +1700,126 @@ function recursion(大规模){
         }
         return ans;
     }
+
+
+    //生成数据完整性sign
+    public static final String RSA_PRIVATE_KEY = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJaBnB2fqV4lTKbvw0Sd2536EMSA2F2uv2sIxHIQcjwgkhHCjZDzDUn9MZyHRxNH2RtjMCCvbPQh7CSu+7SRi07UT7Fpl0Jh461cBThIxfK8U1nnxEgKlNdwYGxVHhHM8GAZNM0AmVk8VBhUtEj9OELkVVH97tRVfmjHCwRIj/9ZAgMBAAECgYAcQQKcsQ9rhBcKs7H1nKjQ1FP3f7SeiaKXplKykxHO5dJmER7gWjBhdm2s09xs6yz/rjQnvqb2gbPCAzNvZ28+N+O1evQ0PY0hannanoz+D73SUTfesUbG1uSLo5GPZAT/mW/eWhKBgoo5yoyMD7pWLCAdnye6y4bRacqIZo63MQJBAN7l2hgSLSR3nqtibqx5KwZMJL7XzwC1rdSZTd6bL+xoHP02zromD6H6TukFwdJ6FuWNeQDsr+hNLa0x4oqZQc0CQQCs25HOX7/evQA8lZ04A4YBUE4A8qJBi0M1illI2sFM9E4LlfU+67uGgWXxTaIw1NAeXHE7/JZtiIV6BggFhRe9AkEAohfO+VBGic1/kqy7RSu8cRDwa+Ruwdpc9k0iBq8eM7Im2rF/tnk1RxrLRcQNBm4ItpiiFV0KM0nk3J15XEdFRQJBAJ5iqh0hGtvq7haVOHOkttrpTDAOIqJQCos6c0kQOGJc0E5JX2gB89fxJQmPiveXaAMJzS+b5/IBT9xZPmxgYTkCQFkpbN8fjF75yjZM3E9TUG2QOEg20V8NFJ9I3H0v7SO2GjS+fPZ3QuOZQAuqSOeNz+aPaFF86EjJpYAyC1Z//zw=";
+    //rsa加密公钥
+    public static final String RSA_PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRssROo9nwQ2fuoOAQqCwBouAngmwsU4D10LWsIuPcfeMD7P70clnNF2aJRr89gnLwDOhp+2OVACRPeynW5Bb6rizBNPp/wxpUKKN2awOZKb7V2Boz36yg2rmU3rCGSuC7oZ/N0pdqunmWE3/+byzpS/3NFdApfAh22QlCdH7a+QIDAQAB";
+
+    @Test
+    public void testencrypt() {
+        String input = "{name:hec}";
+        String ans = rsaEncrypt(input);
+        rsaDecrypt(ans);
+    }
+
+    //rsa加密
+    public static String rsaEncrypt(String jsonStr) {
+        JSONObject dataObj = new JSONObject();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            int len = jsonObject.length();
+            if (len > 0) {
+                Iterator<String> it = jsonObject.keys();
+                while (it.hasNext()) {
+                    String key = it.next();
+                    String value = jsonObject.optString(key);
+                    String rsaValue = BairongSignature.encryptRSA(value, RSA_PUBLIC_KEY);
+                    dataObj.put(key, rsaValue);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("加密串：" + dataObj.toString());
+        return dataObj.toString();
+
+    }
+
+    //rsa解密
+    public static void rsaDecrypt(String jsonStr) {
+        JSONObject dataObj = new JSONObject();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            int len = jsonObject.length();
+            if (len > 0) {
+                Iterator<String> it = jsonObject.keys();
+                while (it.hasNext()) {
+                    String key = it.next();
+                    String value = jsonObject.optString(key);
+                    String rsaValue = BairongSignature.decryptRSA(value, RSA_PRIVATE_KEY);
+                    dataObj.put(key, rsaValue);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("解密串：" + dataObj.toString());
+
+    }
+
+
+    //514,自由之路
+    Map<Character, List<Integer>> mp;
+    int[][] dp;
+
+    public int findRotateSteps(String ring, String key) {
+        int rl = ring.length();
+        int kl = key.length();
+        if (kl == 0) return 0;
+        char[] r = ring.toCharArray();
+        char[] k = key.toCharArray();
+        mp = new HashMap<>();
+        for (int i = 0; i < rl; i++) {//保存字符出现的位置
+            if (mp.containsKey(r[i])) {
+                mp.get(r[i]).add(i);
+            } else {
+                List<Integer> next = new ArrayList<>();
+                next.add(i);
+                mp.put(r[i], next);
+            }
+        }
+        dp = new int[kl][rl];
+        List<Integer> next2 = mp.get(k[0]);
+        Iterator<Integer> it2 = next2.iterator();
+        while (it2.hasNext()) {
+            int c = it2.next();
+            int m = Math.min(c, rl - c);//找到每个位置
+            dp[0][c] = m + 1;
+        }
+
+        //第二步
+        for (int i = 1; i < kl; i++) {
+
+            List<Integer> next = mp.get(k[i]);
+            Iterator<Integer> it = next.iterator();
+            while (it.hasNext()) {
+                int c = it.next();//找到本次的所有位置
+                int min = Integer.MAX_VALUE;
+                List<Integer> next1 = mp.get(k[i - 1]);
+                Iterator<Integer> it1 = next1.iterator();
+                while (it1.hasNext()) {
+                    int d = it1.next();//找到上个字符所有的位置来计算
+                    int m = Math.min(rl - c + d, rl - d + c);//顺时针转
+                    m = Math.min(m, Math.abs(c - d));//Math.abs(c-d):逆时针转
+                    min = Math.min(min, dp[i - 1][d] + m + 1);
+
+                }
+                dp[i][c] = min;
+            }
+        }
+        int ans = Integer.MAX_VALUE;
+        List<Integer> next = mp.get(k[kl - 1]);
+        Iterator<Integer> it = next.iterator();
+        while (it.hasNext()) {
+            ans = Math.min(ans, dp[kl - 1][it.next()]);
+        }
+        return ans;
+
+
+    }
+
 
 }
 
