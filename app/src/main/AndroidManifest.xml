@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pdd.PddActivity"></activity>
+        <activity android:name=".mvvm.viewmodel.ViewModelActivity"></activity>
+        <activity android:name=".ui.RecyclerViewActivity" />
+        <activity android:name=".pdd.PddActivity" />
         <activity android:name=".ui.HalfActivity" />
         <activity android:name=".androidother.sparsearray.SparseArrayActivity" />
         <activity android:name=".mvp.ui.LoginActivity" />

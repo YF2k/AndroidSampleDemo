@@ -164,6 +164,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_half_activity" />
 
+            <Button
+                android:id="@+id/btn_viewmodel_Activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ViewModelActivity"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_pdd_activity" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
