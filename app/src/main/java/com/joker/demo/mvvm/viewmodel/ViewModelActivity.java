@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.joker.demo.BaseActivity;
 import com.joker.demo.R;
 
+//https://blog.csdn.net/xfhy_/article/details/88703853
+//https://blog.csdn.net/gdutxiaoxu/article/details/86660760
 public class ViewModelActivity extends BaseActivity {
     private TextView mContentTv;
     private Button mBtnUpdate;
