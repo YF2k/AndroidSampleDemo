@@ -22,6 +22,10 @@ import com.joker.demo.R;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://www.jianshu.com/p/1cbaf784c29c
+//https://www.cnblogs.com/webor2006/p/4677181.html
+//http://ddrv.cn/a/107971
+//https://www.cnblogs.com/android-blogs/p/5995671.html
 public class ViewPager2Activity extends AppCompatActivity implements View.OnClickListener{
     String TAG="ViewPager2Activity";
     RadioButton mRbH,mRbV;

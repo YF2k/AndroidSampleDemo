@@ -16,6 +16,8 @@ import com.joker.demo.R;
 
 import java.util.List;
 
+//https://blog.csdn.net/dingshuhong_/article/details/84322822
+//https://www.jianshu.com/p/39fc66aa3297
 public class ButterKnifeActivity extends AppCompatActivity {
     private Unbinder unbinder;
 
