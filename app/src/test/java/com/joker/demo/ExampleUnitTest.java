@@ -1,6 +1,8 @@
 package com.joker.demo;
 
+import android.content.Context;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 
 import com.joker.demo.utils.BairongSignature;
 
@@ -17,6 +19,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
@@ -1821,6 +1824,125 @@ function recursion(大规模){
     }
 
 
+    //链表是否有环&确定环入口的位置
+   /* @Test
+    public boolean hasCycle(ListNode head){
+        ListNode qickPoint = head;
+        ListNode slowPoint = head;
+        while(qickPoint!=null&&qickPoint.next!=null){
+            slowPoint = slowPoint.next;
+            qickPoint = qickPoint.next.next;
+            // 注意判空， 如果值一致， 那么确定有环退出
+            if (qickPoint != null && qickPoint.val == slowPoint.val) {
+                return true;
+            }
+        }
+        return false;
+    }*/
+
+
+    //延迟1s后监听
+    static  class SearchEditText extends EditText{
+        private  static final  long TIM =1000L;
+        ITextListener mListener;
+        String mStartText;
+
+        Runnable mAction = new Runnable() {
+            @Override
+            public void run() {
+                // 判断最终和开始前是否一致
+//                if (!StringUtils.equals(mStartText, getText().toString())) {
+//                    mStartText = getText().toString();// 更新 mStartText
+//                    mListener.onTextChanged(mStartText);
+//                }
+            }
+        };
+
+        public SearchEditText(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
+            super.onTextChanged(text, start, lengthBefore, lengthAfter);
+            removeCallbacks(mAction);
+            postDelayed(mAction,TIM);
+        }
+
+        @Override
+        protected void onDetachedFromWindow() {
+            super.onDetachedFromWindow();
+            removeCallbacks(mAction);
+        }
+
+        public void setTextChangedListener(ITextListener listener){
+            mListener = listener;
+        }
+
+        private interface ITextListener{
+            void onTextChanged(String text);
+        }
+    }
+
+
+    @Test
+    public void minDeletions() {
+        int test = 1<<2;
+        System.out.println("test:"+test);
+        String s ="ssssss";
+        Integer[] chars = new Integer[26];
+        int ans =0;
+        char[] words = s.toCharArray();
+        for(int i=0;i<s.length();i++){
+            if(chars[words[i]-'a']==null){
+                chars[words[i]-'a']=1;
+            }else{
+                chars[words[i]-'a']++;
+            }
+
+        }
+
+        chars=new Integer[]{-2147483646,2147483646};
+        Arrays.sort(chars,new Comparator<Integer>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if(o1==null){
+                    return 1;
+                }
+                if(o2==null){
+                    return -1;
+                }
+                return o2-o1;
+            }
+        });
+
+
+        for(int l=0;l<chars.length-1;l++){
+            int r=l+1;
+            while(chars[l]!=null&&chars[r]!=null&&chars[l]==chars[r]&&chars[l]!=0){
+                chars[r]--;
+                ans++;
+                r++;
+            }
+
+        }
+
+        System.out.println(ans);
+//        return ans;
+    }
+
+    public  void  reverseOrder(Integer[] arr){
+        int temp;//定义一个临时变量
+        for(int i=0;i<arr.length-1;i++){//冒泡趟数
+            for(int j=0;j<arr.length-i-1;j++){
+                if(arr[j+1]<arr[j]){
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
 }
 
 

@@ -27,6 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 
@@ -60,6 +64,7 @@ dependencies {
     implementation 'me.weishu:epic:0.3.6'
     implementation 'com.eclipsesource.j2v8:j2v8:4.5.0@aar'
     testImplementation 'org.json:json:20140107'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
 }
 repositories {
