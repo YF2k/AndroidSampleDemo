@@ -11,6 +11,7 @@ import java.util.List;
  * * 创建时间：2018/5/5
  * * 文件描述：通过建造者模式给使用者一个全局操作对象
  * * 修改历史：2018/5/5 11:28*************************************
+ * https://www.jianshu.com/p/36347c7dfa65
  **/
 public class MyHttpClient {
     //设置调度器
